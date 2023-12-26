@@ -1,0 +1,39 @@
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    height: 100%;
+    font-family: InterVariable, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+}
+
+
+#tutorial-links {
+    height: 100%;
+    width: 20%;
+    background-color: orange;
+}
+
+
+
+
+.main-page {
+    width: 100%;
+    margin-left: 15px;
+}
+
+#main-part-of-page {
+    flex-direction: column;
+}
+
+    header.main-page {
+        background-color: blue;
+        height: 20%;
+        margin-bottom: 15px;
+    }
+
+    #content {
+        background-color: blueviolet;
+        height: 100%;
+    }
