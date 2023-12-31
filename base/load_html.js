@@ -39,8 +39,8 @@
 const sideLinksHTML = `
 <h4 class="tutorial-links just-content">Tutorial Roadmap</h4>
 <ul class="tutorial-links just-content link-houser">
-    <li class="link-houser" ><a href="#code">Introduction</a></li>
-    <li class="link-houser" ><a href="#about">Overview</a></li>
+    <li class="link-houser" ><a href="index.html">Introduction</a></li>
+    <li class="link-houser" ><a href="overview.html">Overview</a></li>
     <li class="link-houser" ><a href="#resources">3. Resources</a></li>
 </ul>
 `;

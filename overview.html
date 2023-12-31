@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link rel="stylesheet" href="base/styles.css">
+    <script src="base/load_html.js"></script>
+
+</head>
+
+    <script>changeSideLinkToBold("Overview")</script>
+
+   <div id="tutorial-links"></div> <!-- area where all the links to different parts of the tutorial are -->
+
+  <div id="main-part-of-page" class="main-page">
+      <header id="tutorial-header" class="main-page">
+
+      </header>
+
+      <div id="text-content"> 
+        <h2>Overview</h2>
+        <p>
+            Hello! Welcome to the first part of this tutorial. In this section I am going to be giving an overview
+            and introduction to some of the game-theory, vocabulary and diagrams that I will be doing throughout this tutorial.
+            As well as a conceptual overview on how these two player stratey board-game AIs operate.
+        </p>
+
+        <h2>How Do Our AIs Make the Best Move?</h2>
+        <p>
+            The main goals of these programs is to figure out the best move to play
+            in any given position on the board. So how do they do that? 
+            <br>
+            <br>
+            Well lets first talk about how humans do this. Sometimes we make moves that just 
+            "feel right", having played the game before, our brains have naturally pick up on the patterns and nuances
+            that the game provides. Leading us to pick moves almost intuitively and instinctively. 
+            <br>   
+            <br>
+            The second way we pick moves is by thinking things out. We make the move in our head, compute our opponents
+            responses and than go from there. If you've ever played chess I'm sure you've had this conversation
+            with yourself a million times:
+            <br> "Okay if I move the bishop there... then I take, he takes. Than I move here...
+            and than he takes.... Okay I can't do that. But if I move the bishop here.... I take, he takes and than I take
+            again... Okay I'll do that."
+            <br>   
+            <br>
+            This is what our AI is doing. Were searching through all the possible moves we can make, then looking at the responses our opponent can make to those moves,
+            than looking at all the responses we can make to the moves the opponent made. This process allows our AI to see into the future of the game and pick the move 
+            that is the best one.
+            <br>   
+            <br>
+        </p>
+
+        <h2>How We Visualize This</h2>
+        <p>
+            So lets now talk about what this conceptually looks like. The visual representation of this 
+            search process leaves us with something called a search tree that looks something like this.
+            <br>
+            <br>
+            <img src="Group 56.png">
+        </p>
+      </div>
+
+  </div>
+
+<body>
+
+    
+</body>
+
+</html>
+
