@@ -29,7 +29,16 @@
     list-style-type: none;
 }
 
+.nested-link-houser {
+    padding: 5px 15px 0px 30px;
+    list-style-type: none;
+}
 
+.nested-link-houser a {
+    text-decoration: none; /* Remove default link underline */
+    color: black; /* Set default link color */
+    font-size: medium;
+}
 
 
 html {
