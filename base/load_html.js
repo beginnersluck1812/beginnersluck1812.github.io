@@ -4,9 +4,9 @@
 const sideLinksHTML = `
 <h4 class="tutorial-links just-content">Tutorial Roadmap</h4>
 <ul class="tutorial-links just-content link-houser">
-    <li class="link-houser" ><a href="index.html">Introduction</a></li>
-    <li class="link-houser" ><a href="overview.html">Overview</a></li>
-    <li class="nested-link-houser" ><a href="resources">Finding Positions</a></li>
+    <li class="link-houser" ><a href="../index.html">Introduction</a></li>
+    <li class="link-houser" ><a href="../Overview/overview.html">Overview</a></li>
+    <li class="nested-link-houser" ><a href="../Overview/searching_positions.html">Searching Positions</a></li>
     <li class="link-houser" ><a href="resources">Resources</a></li>
 </ul>
 `
@@ -59,12 +59,14 @@ function boldTutorialLink(linkName) {
 
   // Get all elements with the class 'link-houser'
   var linkElements = document.getElementsByClassName('link-houser');
-  console.log(linkElements);
+  var nestedLinkElements = document.getElementsByClassName('nested-link-houser')
+  var allSideLinkElements = [...linkElements, ...nestedLinkElements];
+  console.log(allSideLinkElements);
 
     // Iterate through each element and find the one with the name 'linkName'
-    for (var i = 0; i < linkElements.length; i++) {
-      if (linkElements[i].innerText == linkName) {
-        linkElements[i].style.fontWeight = 'bold';
+    for (var i = 0; i < allSideLinkElements.length; i++) {
+      if (allSideLinkElements[i].innerText == linkName) {
+        allSideLinkElements[i].style.fontWeight = 'bold';
         return;
       }
     }
