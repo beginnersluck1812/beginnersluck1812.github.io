@@ -4,8 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Othello AI - Searching Positions</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism.min.css">
     <link rel="stylesheet" href="../base/styles.css">
     <script src="../base/load_html.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          // Your Markdown content
+          var markdownText = "**Hello, this is bold text!**";
+      
+          // Convert Markdown to HTML using Marked.js
+          var htmlContent = marked(markdownText);
+      
+          // Set the HTML content to the container
+          document.getElementById('markdown-container').innerHTML = htmlContent;
+        });
+      </script>
+      
 
 </head>
 
@@ -19,18 +35,56 @@
       </header>
 
       <div id="text-content"> 
-        <h2>What is the Goal of Our Program?</h2>
+        <h2>How Do We Search Through These Positions?</h2>
             <p>
-                The goal of our program is to find the <strong>best move</strong> in <strong>any given position</strong>
-                of the game were playing. 
+                In the last portion of this tutorial we talked about how our AI is 
+                going to search through all the possible future moves and positions in the game.
                 <br>
                 <br>
-                More simply we want to <strong>give</strong> our program a <strong>position</strong> and have it <strong>output</strong>
-                the <strong>best move</strong>
-                <br>
-                <br>
-                <img src="Group 67.png">
+                In this section we are going to write the code that allows us to do this.
             </p>
+
+
+        <h2>Writing the Code</h2>
+            <p> We're going to create a function called 'searchThroughPositions' that takes 
+                a paramater called 'currentPosition' which represents the current position
+                we are at in the search.
+            </p>
+
+                <pre><code>
+                   void searchThroughPositions(OthelloPosition currentPosition) {
+
+                   }
+                  </code></pre>
+
+
+            <br>
+            <br>
+
+
+            We want our function to do the following:
+            Iterate through all the moves of the 'currentPosition'
+            For each move, play it and get the resultant position
+            Check if the new position is in a game over state
+            If not re-call the function with the new position.
+
+            <br>
+            <br>
+
+            We can do this by:
+            <pre><code>
+            void searchThroughPositions(currentPosition) {
+                forEach(int move : currentPosition.findAvailableMoves()) {
+                    OthelloPosition newPosition = currentPosition.getPositionAfterPlayingMove( move );
+
+                    if ( !newPosition.isTerminal() ) { //game isnt over
+                        searchThroughPositions( newPosition );
+                    }
+
+                }
+            }
+        </code></pre>
+
 
     
 
