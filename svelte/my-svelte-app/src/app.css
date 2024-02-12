@@ -27,3 +27,26 @@ li a {
 li a:hover {
 	text-decoration: underline;
 }
+
+ul {
+    list-style-type: none;
+}
+
+h5 {
+    list-style-type: none;
+    margin: 8px 0px 0px 15px;
+
+}
+
+main p {
+    font-size: 17px;
+}
+
+iframe {
+    pointer-events: none;
+    border: none;
+}
+
+h2 {
+    margin-top: 50px;
+}

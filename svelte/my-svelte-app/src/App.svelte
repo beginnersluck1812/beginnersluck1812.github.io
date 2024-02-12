@@ -1,41 +1,60 @@
 <script>
+    import { onMount } from 'svelte';
+   import Header from './common/Header.svelte'
+   import TutorialRoadmap from './common/Roadmap.svelte'
+   import Introduction from "./tutorial/Introduction/Introduction.svelte"
+
+   
+   let currentSectionComponent;
+   let Hello;
+
+   async function setCurrentSectionComponent(pathToComponent) {
+      try { 
+			currentSectionComponent = (await import(pathToComponent)).default; 
+         console.log("Current Section Component is now: " + pathToComponent );
+		} catch (e) { 
+			error = e.toString(); 
+		}	
+   }
+
+
+   // onMount( () => {
+   //    currentSectionComponent = getSvelteComponent('./tutorial/Introduction/Introduction.svelte');
+   //    console.log(currentSectionComponent);
+   // })
+
+
+   onMount(async () => {
+      setCurrentSectionComponent('./tutorial/Introduction/Introduction.svelte');
+	});
+
+   //one of the blog posts was clicked, and so we display the svelte component that corresponds
+   async function handleLinkClicked(event) { 
+      const sectionName = event.detail.sectionName;
+      const postName = event.detail.postName.replace(/[\s:]/g, '');
+
+      setCurrentSectionComponent(`./tutorial/${sectionName}/${postName}.svelte`)
+   }
 
 </script>
 
+<div id="app">
+   <TutorialRoadmap on:linkClicked={handleLinkClicked} />
 
-<header>
-  <h1>Othello AI Tutorial</h1>
-<ul class="main-page just-content link-houser">
-    <li class="link-houser" ><a href="#code">Code</a></li>
-    <li class="link-houser" ><a  href="#about">About</a></li>
-    <li class="link-houser" ><a href="#resources">Resources</a></li>
-</ul>
-</header>
+   <div>
+      <Header />
+      <div id="tutorial-content">
+         <svelte:component this={currentSectionComponent} />
+      </div>
+   </div>
+
+</div>
+
 
 <style>
- header {
-    margin-left: 20%;
-    width: 100%;
-    background-color: rgb(214, 121, 121);
-    border-bottom: 2px solid black;
-    height: 10%;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
- }
-
- h1 {
-    text-align: left;
-    white-space: nowrap;
- }
-
- ul {
-  display: flex;
-  text-align: center;
-  padding: 10px;
-  list-style-type: none;
-  margin-left: auto;
- }
-
-
+   #tutorial-content {
+      margin-left: 20%;
+      width: 80%;
+      padding-bottom: 50px;
+   }
 </style>
