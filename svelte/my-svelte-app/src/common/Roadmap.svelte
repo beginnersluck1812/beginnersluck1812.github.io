@@ -18,7 +18,8 @@
     <h4>Tutorial Roadmap</h4>
 
     <Section sectionName= {"Introduction"} blogPostNamesInSection = {[]} on:linkClicked={handleLinkClicked} />
-    <Section sectionName= {"Overview"} blogPostNamesInSection = {["Searching: Game Theory"]} on:linkClicked={handleLinkClicked} />
+    <Section sectionName= {"Overview"} blogPostNamesInSection = {[]} on:linkClicked={handleLinkClicked} />
+    <Section sectionName= {"Searching"} blogPostNamesInSection = {["Why We Search", "Why We Search Pt 2"]} on:linkClicked={handleLinkClicked} />
 
     <!-- <ul>
         <li><a href="../index.html">Introduction</a></li>
