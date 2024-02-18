@@ -4,16 +4,11 @@
 
 
 <main>
-
-
-   <h2>Searching: Game Theory</h2>
-
-   <p>
-    In this section I want talk about why we actually need to search through the game in order to find the best move.
-    It may seem intuitive and inherent that we actually 
-
-   </p>
-
+    <h2>Overview</h2>
+        <p>
+            Before we being looking at the algorithms are program is going to use, we first need to identify
+            the goal of our program.
+        </p>
 
    <h2>What is the Goal of Our Program?</h2>
        <p>
@@ -21,15 +16,15 @@
            of the game were playing. 
            <br>
            <br>
-           More simply we want to <strong>give</strong> our program a <strong>position</strong> and have it <strong>return</strong>
-           the <strong>best move</strong> 
+           More simply we want to <strong>give</strong> our program a <strong>position</strong> and have it find and <strong>return</strong>
+           the <strong>best move</strong> that we can make.
            <br>
            <br>
            <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F7ddlZgwIdbfg25LtigCoci%2FOthello-AI-Tutorial-Designs%3Ftype%3Ddesign%26node-id%3D38%253A2%26mode%3Ddesign%26t%3DBa3BPPo0fpdIyqin-1" allowfullscreen></iframe>
 
        </p>
 
-   <h2>How Humans Achieve This Goal</h2>
+   <!-- <h2>How Humans Achieve This Goal</h2>
        <p>
            Now when we as humans play board games we share the same goal. To look at the board and find the best move. 
            So lets look at an example of how a humnan might play Tic-Tac-Toe.
@@ -71,7 +66,7 @@
            <br>
            <br>
            This is why chess players take a super long time to make their moves, because they are having to search through
-           a bunch of positions in order to do so.
+           a bunch of positions in order to do so. -->
 
             
 
