@@ -21,8 +21,9 @@
            <br>
            <br>
            <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F7ddlZgwIdbfg25LtigCoci%2FOthello-AI-Tutorial-Designs%3Ftype%3Ddesign%26node-id%3D38%253A2%26mode%3Ddesign%26t%3DBa3BPPo0fpdIyqin-1" allowfullscreen></iframe>
-
+        
        </p>
+      
 
    <!-- <h2>How Humans Achieve This Goal</h2>
        <p>

@@ -21,7 +21,7 @@
        If you <strong>made the best move</strong> it means <strong>you chose the best position</strong>. 
        <br>
        <br>
-       This leads us to our <strong>first rule:</strong> The best move is the one that puts you in the best position.
+       This leads us to our <strong>first realization:</strong> The best move is the one that puts you in the best position.
        <br>
        <br>
        So if we want to fulfill our goal of finding the best move to play. It means that we actually need to find the best position 
@@ -56,31 +56,25 @@
        Our goal is to pick the best move, which is the move that puts us in the best position.
        <br>
        <br>
-       When each position has a score it becomes super easy to tell which is the best position.
+       When each position has a score it becomes super easy to tell which is the best position, becuase its the one that has the best score.
        <br>
        <br>
-       <strong>The best position is the one which has the best score</strong>
+       This leads us to our <strong>second realization</strong>: The best position is the one which has the best score.
        <br>
        <br>        
        <br>
        <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F7ddlZgwIdbfg25LtigCoci%2FOthello-AI-Tutorial-Designs%3Ftype%3Ddesign%26node-id%3D278%253A2%26mode%3Ddesign%26t%3DjHNPNRgHqwkKZR1M-1" allowfullscreen></iframe>
-       <br>
-       <br>        
-       <br>
-       This gives us our <strong>second rule</strong>: The best position is the one with the best score.
    </p>
 
    <h2>Our New Problem</h2>
    <p>
-        Now, I kind of just glossed over the whole idea of positions having "scores". But, basically we need some way to identify the value of a position so 
-        However this means <strong>we need to know the numerical value of the positions</strong> in order to <strong>pick the best one</strong>.
+        This whole thing about the best position having the best score is all fine and dandy, but how do we figure out the scores of positions.
        <br>
        <br>
-       So, our new problem becomes finding the scores of these positions.
+       <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="700" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F7ddlZgwIdbfg25LtigCoci%2FOthello-AI-Tutorial-Designs%3Ftype%3Ddesign%26node-id%3D239%253A172%26mode%3Ddesign%26t%3DUMk2AGafibVefQZf-1" allowfullscreen></iframe>
        <br>
        <br>
-       <br>
-       <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F7ddlZgwIdbfg25LtigCoci%2FOthello-AI-Tutorial-Designs%3Ftype%3Ddesign%26node-id%3D310%253A2%26mode%3Ddesign%26t%3DmF9d8zauB7a6W15P-1" allowfullscreen></iframe>
+       In the next section we will be discussing exactly that. How we find the scores of those positions.
    </p>
 </main>
 
