@@ -95,7 +95,17 @@
         With <strong>non-terminal</strong> positions we don't have this luxury. We can't look at the position and immediately determine its value.
         <br>
         <br>
-        However, we don't have this convenience with non-terminal positions, we can't just look at them and immediately determine the value
+        <br>
+        <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F7ddlZgwIdbfg25LtigCoci%2FOthello-AI-Tutorial-Designs%3Ftype%3Ddesign%26node-id%3D1504%253A1357%26mode%3Ddesign%26t%3D8BREjIDfMWth5r5n-1" allowfullscreen></iframe>
+        <br>
+        <br>
+        <br>
+        Well, in order to find the scores of these positions we have to look at the scores of future positions.
+        The value of a position is equal to the value of the position the current player will choose from said position.
+        Ohh know I know this position is good because it will allow X to move into a position that is good.
+        <br>
+        <br>
+        <br>
     </p>
 
 
