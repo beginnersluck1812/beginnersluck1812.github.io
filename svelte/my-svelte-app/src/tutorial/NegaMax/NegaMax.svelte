@@ -40,7 +40,12 @@
         You can think of it as the skeleton of our AI. It is crucial to our AI's success and everything that we do in the future is going to develop and revolve around it.
         <br>
         <br>
-        In the next section you will begin to learn about the <strong>NegaMax</strong> algorithm, and how it works.
+        In the next section you will begin to learn about the theories that makes the <strong>NegaMax</strong> algorithm work.
+        <br>
+        <br>
+        Now, the explanation of how it works is going to wrinkle your brain,
+        its going to apply a buttload of logic, game theory and complexity to something that you take for granted, but trust me, its awesome!
+
     </p>
 
 </main>

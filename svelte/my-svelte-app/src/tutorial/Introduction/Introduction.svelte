@@ -62,6 +62,43 @@
         <br>
         Or an <a href="https://www.worldothello.org/about/about-othello/othello-rules/official-rules/english" target="_blank">article</a> if you prefer it.
     </p>
+
+    <h2>The Types of Games You Can Use this Tutorial For</h2>
+    <p>
+         The techniques and strategies that I talk about in this tutorial can be applied to a wide variety of games, but they need to be two-player sequential perfection-information games.
+         <br>
+         <br>
+         Woah! What the heck is a two-player sequential perfection-information game. Well, let's break down each part of that statement.
+         <br>
+         <br>
+         <strong>two-player</strong> - Means that there are two players in this game and they <strong>have to be competing</strong> against one another.
+         <br>
+         <br>
+         <strong>sequential</strong> - Means that the players switch off turns
+         <br>
+         <br>
+         <strong>perfect-information</strong> - Means that each player has complete and absolute knowledge of the information available in the game. 
+         Each player knows all the possible decisions their opponent can make. There is no secrecy, each player has access to all the information the game has to offer.
+         In other words, both players are perfectly informed. 
+         <br>
+         <br>
+         An example of a <strong>perfect-information</strong> game is Chess. There is no secrecy in Chess, since both players can see each other's pieces and understand what their opponent can do in any given position.
+         <br>
+         <br>
+         Games like <strong>poker</strong> or <strong>go fish</strong> aren't perfect-information games becuase you have no idea what cards your opponents are holding, our what the next card is in the deck.
+         <br>
+         <br>
+         Most of the time, if a board game has two players, the ability for each player to see the other pieces, and no randomness, odds are it fits the above descriptions.
+         <br>
+         <br>
+         These types of games are reffered to as combinatorial games, and can be further described as "two-person games with perfect information and no chance moves, and with a win-or-lose outcome" (<a href="https://www.cs.cmu.edu/afs/cs/academic/class/15859-s05/www/ferguson/comb.pdf" target="_blank">Impartial Combinatory Games</a>, Thomas S. Ferguson).
+         <br>
+         <br>
+         Now, the study of these types of games is reffered to as <a href="https://en.wikipedia.org/wiki/Combinatorial_game_theory" target="_blank">combinatorial game theory</a>, and is the primary driving point behind what we'll talk about.
+         <br>
+         <br>
+    </p>
+
  </main>
  
  <style>

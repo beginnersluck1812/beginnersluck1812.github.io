@@ -18,7 +18,7 @@
     <h4>Tutorial Roadmap</h4>
 
     <Section sectionName= {"Introduction"} blogPostNamesInSection = {[]} on:linkClicked={handleLinkClicked} />
-    <Section sectionName= {"NegaMax"} blogPostNamesInSection = {["Understanding Moves","Position Scores"]} on:linkClicked={handleLinkClicked} />
+    <Section sectionName= {"NegaMax"} blogPostNamesInSection = {["Understanding Moves","Terminal Positions","Non Terminal Positions"]} on:linkClicked={handleLinkClicked} />
 
     <!-- <ul>
         <li><a href="../index.html">Introduction</a></li>
