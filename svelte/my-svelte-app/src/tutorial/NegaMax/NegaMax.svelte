@@ -20,7 +20,7 @@
        the <strong>best move</strong> that we can make.
        <br>
        <br>
-       <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F7ddlZgwIdbfg25LtigCoci%2FOthello-AI-Tutorial-Designs%3Ftype%3Ddesign%26node-id%3D38%253A2%26mode%3Ddesign%26t%3DBa3BPPo0fpdIyqin-1" allowfullscreen></iframe>
+       <iframe title="Goal of Program" style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F7ddlZgwIdbfg25LtigCoci%2FOthello-AI-Tutorial-Designs%3Ftype%3Ddesign%26node-id%3D38%253A2%26mode%3Ddesign%26t%3DBa3BPPo0fpdIyqin-1" allowfullscreen></iframe>
 
    </p>
  <p class="footnote">**Note that I will be using Tic-Tac-Toe positions in most diagrams rather than Othello positions. Mainly because their easier to make and easier to understand. But remember the concepts are the same between the two</p>

@@ -49,6 +49,7 @@ main p {
 iframe {
     pointer-events: none;
     border: none;
+    margin: 0 auto;
 }
 
 h2 {

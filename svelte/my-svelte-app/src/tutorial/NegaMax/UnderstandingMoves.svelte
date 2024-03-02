@@ -29,7 +29,7 @@
        <br>
        <br>
        <br>
-       <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F7ddlZgwIdbfg25LtigCoci%2FOthello-AI-Tutorial-Designs%3Ftype%3Ddesign%26node-id%3D195%253A2%26mode%3Ddesign%26t%3DbgWGkc4fw4RuXk7C-1" allowfullscreen></iframe>
+       <iframe title="We need to find the best position to move into" style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F7ddlZgwIdbfg25LtigCoci%2FOthello-AI-Tutorial-Designs%3Ftype%3Ddesign%26node-id%3D195%253A2%26mode%3Ddesign%26t%3DbgWGkc4fw4RuXk7C-1" allowfullscreen></iframe>
        <br>
        <br>
        <br>
@@ -49,7 +49,7 @@
        <br>
        <br>
        <br>
-       <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F7ddlZgwIdbfg25LtigCoci%2FOthello-AI-Tutorial-Designs%3Ftype%3Ddesign%26node-id%3D1122%253A211%26mode%3Ddesign%26t%3DUMk2AGafibVefQZf-1" allowfullscreen></iframe> 
+       <iframe title="Best Move is the Position with the Best Score" style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F7ddlZgwIdbfg25LtigCoci%2FOthello-AI-Tutorial-Designs%3Ftype%3Ddesign%26node-id%3D1122%253A211%26mode%3Ddesign%26t%3DUMk2AGafibVefQZf-1" allowfullscreen></iframe> 
        <br>
        <br>
        <br>
@@ -63,7 +63,7 @@
        <br>
        <br>        
        <br>
-       <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F7ddlZgwIdbfg25LtigCoci%2FOthello-AI-Tutorial-Designs%3Ftype%3Ddesign%26node-id%3D278%253A2%26mode%3Ddesign%26t%3DjHNPNRgHqwkKZR1M-1" allowfullscreen></iframe>
+       <iframe title="Pick Move that Leads to Best Position" style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F7ddlZgwIdbfg25LtigCoci%2FOthello-AI-Tutorial-Designs%3Ftype%3Ddesign%26node-id%3D278%253A2%26mode%3Ddesign%26t%3DjHNPNRgHqwkKZR1M-1" allowfullscreen></iframe>
    </p>
 
    <h2>Our New Problem</h2>
@@ -71,7 +71,7 @@
         This whole thing about the best position having the best score is all fine and dandy, but how do we figure out the scores of positions.
        <br>
        <br>
-       <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="700" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F7ddlZgwIdbfg25LtigCoci%2FOthello-AI-Tutorial-Designs%3Ftype%3Ddesign%26node-id%3D239%253A172%26mode%3Ddesign%26t%3DUMk2AGafibVefQZf-1" allowfullscreen></iframe>
+       <iframe title="How do we find these scores" style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="700" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F7ddlZgwIdbfg25LtigCoci%2FOthello-AI-Tutorial-Designs%3Ftype%3Ddesign%26node-id%3D239%253A172%26mode%3Ddesign%26t%3DUMk2AGafibVefQZf-1" allowfullscreen></iframe>
        <br>
        <br>
        In the next section we will be discussing exactly that. How we find the scores of those positions.

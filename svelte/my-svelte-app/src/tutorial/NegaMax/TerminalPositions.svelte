@@ -4,7 +4,7 @@
 </script>
 
 <main>
-<h2>How to Find the Score of a Position?</h2>
+<h2>How to Find the Score of a Position</h2>
 <p>
   In order to find the score of a position we first need to identify what type of position it is.
   <br>
@@ -76,7 +76,7 @@
     <br>
     <br>
     <br>
-    <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F7ddlZgwIdbfg25LtigCoci%2FOthello-AI-Tutorial-Designs%3Ftype%3Ddesign%26node-id%3D1634%253A450%26mode%3Ddesign%26t%3DXDqzL9sdLPZN2D1o-1" allowfullscreen></iframe>
+    <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="600" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F7ddlZgwIdbfg25LtigCoci%2FOthello-AI-Tutorial-Designs%3Ftype%3Ddesign%26node-id%3D1634%253A450%26mode%3Ddesign%26t%3Df4PW4BOdK3CAHH5Z-1" allowfullscreen></iframe>
     <br>
     <br>
     <br>
@@ -110,6 +110,73 @@
     <br>
     In a terminal position, the current player has either lost or tied the game. Becuse we score positions based on whose turn it is, terminal positions will 
     always have either a negative score (indicating a loss) or a score of 0 (indicating a tie).
+  </p>
+
+  <h2>Picking the Best Position</h2>
+  <p>
+    Now that we have learned about how terminal positions are scored, we should be able to pick the best move in a position where all the resultants positions are terminal.
+    <br>
+    <br>
+    <br>
+    <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="1000" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F7ddlZgwIdbfg25LtigCoci%2FOthello-AI-Tutorial-Designs%3Ftype%3Ddesign%26node-id%3D1759%253A362%26mode%3Ddesign%26t%3Df4PW4BOdK3CAHH5Z-1" allowfullscreen></iframe>
+    <br>
+    <br>
+    <br>
+    X is trying to pick the best position based on which score is the highest. 
+    <br>
+    <br>
+    The problem is that the resultant positions are being <strong>scored from O’s perspective</strong>, and they <strong>reflect how O values those positions not X</strong>.
+    <br>
+    <br>
+    <br>
+    <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="700" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F7ddlZgwIdbfg25LtigCoci%2FOthello-AI-Tutorial-Designs%3Ftype%3Ddesign%26node-id%3D1823%253A661%26mode%3Ddesign%26t%3Df4PW4BOdK3CAHH5Z-1" allowfullscreen></iframe>
+    <br>
+    <br>
+    <br>
+    In any position (regardless of whose turn it is), the positions that the current player can move into are <strong>always going to be scored from the opponent's point of view</strong>.
+    <br>
+    <br>
+    This is becuase turns alternate, so if its X's turn, all the possible moves are going to lead to positions in which it's O turn. 
+    If its O's turn all the possible moves O can make are going to lead to positions in which its X's turn.
+    <br>
+    <br>
+    This leads us to a dilemma, we need to pick the position with the best score, but all the positions that we can move into are <strong>always going to be scored from our opponent's perspective</strong>.     
+    <br>
+    <br>
+    And we can't use our opponent's scores, becuase they don't accurately reflect the value of the position to us. They reflect the value of the position to our opponent, but not to us.
+    <br>
+    <br>
+    Wait.... wait, wait... lets look at this line again "<strong>we can't use our opponent's scores, becuase they don't accurately reflect the value of the position to us</strong>". That statement is true, we can't use those scores since they directly represent our opponent's value of the position. But we can use them in order to determine how <strong>we value the positions</strong>.
+    <br>
+    <br>
+    If our opponent gives a position a good score, we know its bad for us, since our opponent finds it good. 
+    <br>
+    <br>
+    If our opponent gives a position a bad score, we know that its good for us, since our opponent find it unfavorable.
+    <br>
+    <br>
+    If O loses, and gives the position a score of -4. We should view that move as good one becuase it leads to our opponent losing, and therefore, us winning.
+    <br>
+    <br>
+    If a position is good for one player, it is <strong>equally</strong> as bad for the other. 
+    <br>
+    <br>
+    The misfortune of one player is proportionally equal to the fortune of the other. 
+    <br>
+    <br>
+    If X finds a position that is <strong>really</strong> good, O is going to view that position as <strong>really</strong> bad.
+    <br>
+    <br>
+    If O finds a position that is <strong>kinda bad</strong>, it means that X finds the position <strong>kinda good</strong>.
+    <br>
+    <br>
+    In the next section you will learn how we can use this information to help solve our dillema.
+    <br>
+    <br>
+  </p>
+
+  
+
     
     <!-- <br>
     <br>
@@ -122,7 +189,7 @@
     <br>
     <br>
     But in Othello, this isn't the case. -->
-  </p>
+
 
 <!-- 
     <h2>How We Score Terminal Positions in Othello</h2>
