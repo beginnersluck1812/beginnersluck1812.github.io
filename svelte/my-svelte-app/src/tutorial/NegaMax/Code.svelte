@@ -48,9 +48,9 @@ public static int NegaMax(Position position) {
 
     return bestPositionScore;
 }  
-
-
    `
+
+   
 </script>
 
 
@@ -131,13 +131,13 @@ public static int NegaMax(Position position) {
         There we go, that's our NegaMax function.
         <br>
         <br>
-        With all the stuff thats going on behind the scenes, the NegaMax algorithm is actually super simplistic in implementation.
+        With all the stuff thats going on behind the scenes, the NegaMax algorithm is actually super simplistic in its implementation.
         <br>
         <br>
-        The power really comes from the fact that it is a recursive function.
+        <strong>The power really comes from the fact that it is a recursive function.</strong>
         <br>
         <br>
-        When we call NegaMax on 'resultantPosition', if 'resultantPostion' isn't terminal then when it goes through the NegaMax function it's going to call NegaMax on <strong>its</strong> resultant positions.
+        When we call NegaMax on 'resultantPosition', and 'resultantPostion' isn't terminal were going to have to call NegaMax on <strong>its</strong> resultant positions.
         <br>
         <br>
         And if 'resultantPositions's resultant positions aren't terminal NegaMax is going to be called again and again and again.
@@ -149,14 +149,16 @@ public static int NegaMax(Position position) {
         Now that we have the NegaMax function written, lets use it find the best move of a given position.
         <br>
         <br>
-        In order to do this we will make a function called <code>findBestMove</code> that takes in a <code>Position</code>.
+        In order to do this lets make a function called <code>SearchForBestMove</code> that takes in a <code>Position</code>.
         <br>
         <br>
+        <div class = "code">
         {@html Prism.highlight(`
-        public static int findBestMove( Position position ) {
+        public static int SearchForBestMove( Position position ) {
 
         }
         `, Prism.languages[language])}
+        </div>
         <br>
         <br>
         Recall, that in order to find the best move a position we need to find the scores of all the positions that we can move into, and then pick the move that leads us to the best position.
@@ -175,9 +177,14 @@ public static int NegaMax(Position position) {
         6. Once all positions have been scored, return the move that leads to the best position.
         <br>
         <br>
+        <div class = "code">
         {@html Prism.highlight(`
+
             //returns a location on the board that will lead to the best position
-            public static int findBestMove( Position position ) {
+            public static int SearchForBestMove( Position position ) {
+
+                if (position.IsTerminal()) throw new CustomException("Can't search a terminal position"); //cant search for best move if there are no moves to search
+                
                 int bestPositionScore = int.MinValue; 
                 int bestMoveLocation = -1;
 
@@ -196,11 +203,10 @@ public static int NegaMax(Position position) {
                     return bestMoveLocation;
             }
             `, Prism.languages[language])}
-
+            </div>
         <br>
         <br>
         As you can see the <code>findBestMove</code> function is actually really similar to the <code>NegaMax</code> function, the only difference being that we keep track of the best move and return it, instead of returning the score.
-    </p>
 
     <h2>Adding a Stop Depth</h2>
     <p>
@@ -313,11 +319,13 @@ public static int NegaMax(Position position) {
         <code>stopDepth</code> - will represent at what point we stop 
         <br>
         <br>
+        <div class = "code">
         {@html Prism.highlight(`
             public static int NegaMax( Position position, int depth, int stopDepth ) {
     
             }
             `, Prism.languages[language])}
+        </div>
         <br>
         <br>
         We than have to change the order in which we look to score a position... 
@@ -330,6 +338,7 @@ public static int NegaMax(Position position) {
         3. If the position is not terminal or if were not at our stop depth, find and return its non-terminal score
         <br>
         <br>
+        <div class = "code">
         {@html Prism.highlight( `
             public static int NegaMax(Position position, int depth, int stopDepth) {
             
@@ -348,7 +357,7 @@ public static int NegaMax(Position position) {
                     Position resultantPosition = position.playMove( move ); //returns a new 'Position' object with the played move
                     //note that the current turn in 'resultantPosition' is the opponent of the player in 'position'
             
-                    int positionScore = -NegaMax(resultantPosition, depth+1, stopDepth+1); //when we call NegaMax we increase the depth
+                    int positionScore = -NegaMax(resultantPosition, depth+1, stopDepth); //when we call NegaMax we increase the depth
             
                     bestPositionScore = Math.Max(bestPositionScore, positionScore);
                 }
@@ -357,28 +366,34 @@ public static int NegaMax(Position position) {
             }      
                `
             , Prism.languages[language])}
+            </div>
             <br>
             <br>
-            We also have to change the <code>findBestMove</code> function to accomodate for the stop depth as well... 
+            We also have to change the <code>SearchForBestMove</code> function to accomodate for the stop depth as well... 
             <br>
             <br>
             The function will now take in <code>stopDepth</code> paramater.
             <br>
             <br>
+            <div class = "code">
             {@html Prism.highlight(`
                 //returns a location on the board that will lead to the best position
-                public static int findBestMove( Position position, int stopDepth) {
+                public static int SearchForBestMove( Position position, int stopDepth) {
 
                 }
                 `, Prism.languages[language])}
+            </div>
             <br>
             <br>
             And change like this... 
             <br>
             <br>
-            {@html Prism.highlight(`
-                //returns a location on the board that will lead to the best position
-                public static int findBestMove( Position position ) {
+            <div class = "code">
+            {@html Prism.highlight(`//returns a location on the board that will lead to the best position
+                public static int SearchForBestMove( Position position ) {
+
+                    if (position.IsTerminal()) throw new CustomException("Can't search a terminal position");
+
                     int bestPositionScore = int.MinValue; 
                     int bestMoveLocation = -1;
     
@@ -394,15 +409,118 @@ public static int NegaMax(Position position) {
                         }
                     }
     
-                        return bestMoveLocation;
-                }
-                `, Prism.languages[language])}
+                        return bestMoveLocation;`, Prism.languages[language])}
+            </div>
             <br>
             <br>
             Well... there you have it the code for Negamax. Make sure that you have a real good understanding of it before moving on, becuase everything that we do is going to be based off this algorithm.
-    </p>
+            <br>
+            <br>
+            To allow for more customizability lets actually make it part of a class instead...
+            <br>
+            <br>
+            <div class="code">
+                {@html Prism.highlight(`
 
-    
+                public class NegaMax {
+                    public int stopDepth; //depth we are searching to 
+                    
+                    public int bestMoveLocation = -1; //best position we found at the depth we searched to
+                    public int bestMoveScore = Int.MinValue; //score of 'bestMoveLocation'
+        
+                    public int positionsSearched = 0;
+                    public int encounteredTermPositions = 0;
+                    public int heuristicScoredPositons = 0;
+
+
+                    private NegaMax(int stopDepth) { 
+                        this.stsopDepth = stopDepth;
+                    }
+
+                    public static NegaMax Search(int stopDepth) {
+                        NegaMax n = new NegaMax(stopDepth);
+                        n.SearchForBestMove();
+                        return n;
+                    }
+
+                    private SearchForBestMove( Position position );
+
+                    private NegaMax ( Position position, int depth);
+
+                }
+                `, Prism.languages[language])}
+            </div>
+            <br>
+            <br>
+            Looking at this class their are two important things to take note of. 
+            <br>
+            <br>
+            First, is that the constructor is <code>private</code>, and the only way to initialize a <code>NegaMax</code>
+            object is through the <code>static</code> method <code>Search</code>. 
+            <br>
+            <br>
+            I constructed the class this way, so that ,<strong>you can only have access to a NegaMax object once it has searched a position</strong>.
+            <br>
+            <br>
+            Also note that we now have class variables that represent the best move to play, and the score of said move.
+            These variables replace <code>bestMoveLocation</code> and <code>bestPositionScore</code> in <code>SearchForBestMove</code>, respectively.
+            <br>
+            <br>
+            There are also these variables:
+            <div class="code">
+                {@html Prism.highlight(`
+
+                    public int positionsSearched = 0;
+                    public int encounteredTermPositions = 0;
+                    public int heuristicScoredPositons = 0;
+
+                `, Prism.languages[language])}
+            </div>
+            <br>
+            <br>
+            I've added these mainly as a way to track the information of our search. Now, when the search is over we can see, how may positions we actually searched, how many terminal positions
+            we encountered, and how many positions were scored using our heuristic function.
+            <br>
+            <br>
+            Implementing these "tracking" vars in our <code>NegaMax</code> method looks like this:
+            <br>
+            <br>
+            {@html Prism.highlight(`
+            public static int NegaMax(Position position, int depth) {
+                        
+                        if ( position.isTerminal() ) {
+                            this.encounteredTermPositions++;
+                            return position.getTerminalScore(); 
+                        }
+
+
+                        if ( depth == this.stopDepth ) { //note *this.stopDepth cuz its a class variable
+                            this.scoredHeuristicPositions++;
+                            return position.getHeuristicScore();
+                        }
+
+                        //were actually searching the position
+                        this.searchedPositions++;
+
+                        int bestPositionScore = int.MinValue; 
+                    
+                        foreach (int move in position.findAvailableMoves() ) { //'move' just represents a location on the board
+                            Position resultantPosition = position.playMove( move ); //returns a new 'Position' object with the played move
+                            //note that the current turn in 'resultantPosition' is the opponent of the player in 'position'
+                    
+                            int positionScore = -NegaMax(resultantPosition, depth+1); //when we call NegaMax we increase the depth
+                    
+                            bestPositionScore = Math.Max(bestPositionScore, positionScore);
+                        }
+                    
+                        return bestPositionScore;
+                    }      
+                    
+                    `, Prism.languages[language])}
+            Well, thats it! After a <strong>lot</strong> of learning we have finally completed the section regarding the NegaMax algorithm.
+            <br>
+            <br>
+            Now becuase this algorithm and code is the foundation of our entire AI, make sure you look over it a few times until you have a really good understanding of it.
 
 
 </main>
