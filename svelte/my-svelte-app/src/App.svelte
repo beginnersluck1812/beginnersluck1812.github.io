@@ -32,7 +32,7 @@
    async function handleLinkClicked(event) { 
       const sectionName = event.detail.sectionName;
       const postName = event.detail.postName.replace(/[\s:]/g, '');
-
+      console.log(`./tutorial/${sectionName}/${postName}.svelte`)
       setCurrentSectionComponent(`./tutorial/${sectionName}/${postName}.svelte`)
    }
 

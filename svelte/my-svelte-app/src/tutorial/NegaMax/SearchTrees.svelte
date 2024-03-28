@@ -37,11 +37,13 @@
         There are also different types of nodes, for example there are <strong>parent nodes</strong> and <strong>child nodes</strong>.
         <br>
         <br>
-        Basically, whenever a node has positions that it can move into, the resultant positions are considered <strong>child</strong> of the top position
+        Basically, whenever a node has positions that it can move into, the resultant positions are considered a <strong>child</strong> of the top position
         <br>
         <br>
         And the top position is considered the <strong>father</strong> of the resultant positions.
-        <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FRtVMrDcq6jwo9ztiZFuhcX%2FOthello-AI-Project-Animations%3Ftype%3Ddesign%26node-id%3D64%253A828%26mode%3Ddesign%26t%3D4e719sW4vAWFDSz3-1" allowfullscreen></iframe>
+        <br>
+        <br>
+        <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="650" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FRtVMrDcq6jwo9ztiZFuhcX%2FOthello-AI-Project-Animations%3Ftype%3Ddesign%26node-id%3D64%253A828%26mode%3Ddesign%26t%3D4e719sW4vAWFDSz3-1" allowfullscreen></iframe>
         <br>
         <br>
         <br>

@@ -5,48 +5,48 @@
 
     let language = "csharp";
     const functionDecleration = `
-    public static int NegaMax(Position position) {
+    public static int NegaMax(Position currPosition) {
 
     }
 `
 
    const functionWithTerminal = `
-public static int NegaMax(Position position) {
+public static int NegaMax(Position currPosition) {
 
-    if ( position.isTerminal() ) { 
-        return position.getTerminalScore(); 
+    if ( currPosition.isTerminal() ) { 
+        return currPosition.getTerminalScore(); 
     }
 }  
 
 //a possible example of the get terminal score function
 public int getTerminalScore() {
 
-    if ( position.lostGame() ) { return -(this.movesLeftInGame() + 1); } //more moves left in the game, the worse the score
+    if ( currPosition.lostGame() ) { return -(this.movesLeftInGame() + 1); } //more moves left in the game, the worse the score
 
-    if ( position.isTie() ) { return 0; } //return 0 cuz its a tie
+    if ( currPosition.isTie() ) { return 0; } //return 0 cuz its a tie
 
 }
    `
 
    const termAndNonTerm = `
-public static int NegaMax(Position position) {
+public static int NegaMax(Position currPosition) {
 
-    if ( position.isTerminal() ) {
-        return position.getTerminalScore(); 
+    if ( currPosition.isTerminal() ) {
+        return currPosition.getTerminalScore(); 
     }
 
-    int bestPositionScore = int.MinValue; 
+    int bestChildPositionScore = int.MinValue; 
 
-    foreach (int move in position.findAvailableMoves() ) { //'move' just represents a location on the board
-        Position resultantPosition = position.playMove( move ); //returns a new 'Position' object with the played move
-        //note that the current turn in 'resultantPosition' is the opponent of the player in 'position'
+    foreach (Position childPosition in currPosition.GetChildPositions() ) { //'move' just represents a location on the board
+        Position childPosition = currPosition.playMove( move ); //returns a new 'Position' object with the played move
+        //note that the current turn in 'childPosition' is the opponent of the player in 'position'
 
-        int positionScore = -NegaMax(resultantPosition); //we take the negative, since the score returned is from the opponent
+        int childPositionScore = -NegaMax(childPosition); //we take the negative, since the score returned is from the opponent
 
-        bestPositionScore = Math.Max(bestPositionScore, positionScore);
+        bestChildPositionScore = Math.Max(bestChildPositionScore, childPositionScore);
     }
 
-    return bestPositionScore;
+    return bestChildPositionScore;
 }  
    `
 
@@ -61,13 +61,13 @@ public static int NegaMax(Position position) {
        We did it, we finally made it to the code portion of the NegaMax algorithm.
        <br>
        <br>
-       But before we hop into the code lets recap our goal, which is to find the best move in any given position.
+       But before we hop into the code lets recap our goal, which is to find the best move in any given currPosition.
        <br>
        <br>
        To find the best move, we need to find the score of the best position we can move into.
        <br>
        <br>
-       This is where NegaMax comes in, quite simply NegaMax is a function that takes in a position and returns the score of the position.
+       This is where NegaMax comes in, quite simply NegaMax is a function that takes in a position and returns the score of the currPosition.
        <br>
        <br>
        <br>
@@ -113,9 +113,9 @@ public static int NegaMax(Position position) {
         <br>
         1. Iterate through all the available moves the position has to offer.
         <br>
-        2. For each move, play it, and get that resultant position.
+        2. For each move, play it, and get that resultant currPosition.
         <br>
-        3. Find the score of that resultant position.
+        3. Find the score of that resultant currPosition.
         <br>
         4. Take the negative of the score (becuase the score returned to us, is from the opponent's perspective).
         <br>
@@ -137,16 +137,16 @@ public static int NegaMax(Position position) {
         <strong>The power really comes from the fact that it is a recursive function.</strong>
         <br>
         <br>
-        When we call NegaMax on 'resultantPosition', and 'resultantPostion' isn't terminal were going to have to call NegaMax on <strong>its</strong> resultant positions.
+        When we call NegaMax on 'childPosition', and 'resultantPostion' isn't terminal were going to have to call NegaMax on <strong>its</strong> resultant positions.
         <br>
         <br>
-        And if 'resultantPositions's resultant positions aren't terminal NegaMax is going to be called again and again and again.
+        And if 'childPositions's resultant positions aren't terminal NegaMax is going to be called again and again and again.
         <br>
         <br>
         If you follow the function notice the only break is if the position is terminal. If the position is terminal we don't ever call NegaMax, and it ends the chain of the recursive search.
         <br>
         <br>
-        Now that we have the NegaMax function written, lets use it find the best move of a given position.
+        Now that we have the NegaMax function written, lets use it find the best move of a given currPosition.
         <br>
         <br>
         In order to do this lets make a function called <code>SearchForBestMove</code> that takes in a <code>Position</code>.
@@ -154,49 +154,48 @@ public static int NegaMax(Position position) {
         <br>
         <div class = "code">
         {@html Prism.highlight(`
-        public static int SearchForBestMove( Position position ) {
+        public static int SearchForBestMove( Position currPosition ) {
 
         }
         `, Prism.languages[language])}
         </div>
         <br>
         <br>
-        Recall, that in order to find the best move a position we need to find the scores of all the positions that we can move into, and then pick the move that leads us to the best position.
+        Recall, that in order to find the best move a position we need to find the scores of all the positions that we can move into, and then pick the move that leads us to the best currPosition.
         <br>
         <br>
         1. Iterate through all the available moves the position has to offer.
         <br>
-        2. For each move, play it, and get that resultant position.
+        2. For each move, play it, and get that resultant currPosition.
         <br>
-        3. Find the score of that resultant position.
+        3. Find the score of that resultant currPosition.
         <br>
         4. Take the negative of the score (becuase the score returned to us, is from the opponent's perspective).
         <br>
         5. Do this for all positions, keeping track of the best score and the move that goes with that score.
         <br>
-        6. Once all positions have been scored, return the move that leads to the best position.
+        6. Once all positions have been scored, return the move that leads to the best currPosition.
         <br>
         <br>
         <div class = "code">
         {@html Prism.highlight(`
 
             //returns a location on the board that will lead to the best position
-            public static int SearchForBestMove( Position position ) {
+            public static int SearchForBestMove( Position currPosition ) {
 
-                if (position.IsTerminal()) throw new CustomException("Can't search a terminal position"); //cant search for best move if there are no moves to search
+                if (currPosition.IsTerminal()) throw new CustomException("Can't search a terminal position"); //cant search for best move if there are no moves to search
                 
-                int bestPositionScore = int.MinValue; 
+                int bestChildPositionScore = int.MinValue; 
                 int bestMoveLocation = -1;
 
-                foreach (int move in position.findAvailableMoves() ) { 
-                    Position resultantPosition = position.playMove( move ); //returns a new 'Position' object with the played move
-                    //note that the current turn in 'resultantPosition' is the opponent of the player in 'position'
+                //iterating through each child of the current position, remember that each childPosition is a different turn then currPosition
+                foreach (Position childPosition in currPosition.GetChildPositions() ) { 
 
-                    int positionScore = -NegaMax(resultantPosition); //we take the negative, since the score returned is from the opponent
+                    int childPositionScore = -NegaMax(childPosition); //we take the negative, since the score returned is from the opponent pov
 
-                    if (positionScore > bestPositionScore) {
+                    if (positionScore > bestChildPositionScore) {
                         bestMoveLocation = move;
-                        bestPositionScore = positionScore;
+                        bestChildPositionScore = childPositionScore;
                     }
                 }
 
@@ -262,7 +261,7 @@ public static int NegaMax(Position position) {
         We guess through the use of a static evaluation function. 
         <br>
         <br>
-        This function takes in one of these stop depth positions, and using some some sort of technique or strategy it will estimate the value of the position.
+        This function takes in one of these stop depth positions, and using some some sort of technique or strategy it will estimate the value of the currPosition.
         <br>
         <br>
         For example, in Connect Four you could make a static evaluation function that scores positions based on how many pieces the current player has near the center of the board and how many 3s in a row they have.
@@ -321,14 +320,14 @@ public static int NegaMax(Position position) {
         <br>
         <div class = "code">
         {@html Prism.highlight(`
-            public static int NegaMax( Position position, int depth, int stopDepth ) {
+            public static int NegaMax( Position currPosition, int depth, int stopDepth ) {
     
             }
             `, Prism.languages[language])}
         </div>
         <br>
         <br>
-        We than have to change the order in which we look to score a position... 
+        We than have to change the order in which we look to score a position
         <br>
         <br>
         1. First check if the position is terminal, if it is, return its terminal score
@@ -340,29 +339,29 @@ public static int NegaMax(Position position) {
         <br>
         <div class = "code">
         {@html Prism.highlight( `
-            public static int NegaMax(Position position, int depth, int stopDepth) {
+            public static int NegaMax(Position currPosition, int depth, int stopDepth) {
             
-                if ( position.isTerminal() ) {
-                    return position.getTerminalScore(); 
+                if ( currPosition.isTerminal() ) {
+                    return currPosition.getTerminalScore(); 
                 }
 
 
                 if ( depth == stopDepth ) {
-                    return position.getHeuristicScore();
+                    return currPosition.getHeuristicScore();
                 }
 
-                int bestPositionScore = int.MinValue; 
+                int bestChildPositionScore = int.MinValue; 
             
-                foreach (int move in position.findAvailableMoves() ) { //'move' just represents a location on the board
-                    Position resultantPosition = position.playMove( move ); //returns a new 'Position' object with the played move
-                    //note that the current turn in 'resultantPosition' is the opponent of the player in 'position'
+                foreach (Position childPosition in currPosition.GetChildPositions() ) { //'move' just represents a location on the board
+                    Position childPosition = currPosition.playMove( move ); //returns a new 'Position' object with the played move
+                    //note that the current turn in 'childPosition' is the opponent of the player in 'position'
             
-                    int positionScore = -NegaMax(resultantPosition, depth+1, stopDepth); //when we call NegaMax we increase the depth
+                    int childPositionScore = -NegaMax(childPosition, depth+1, stopDepth); //when we call NegaMax we increase the depth
             
-                    bestPositionScore = Math.Max(bestPositionScore, positionScore);
+                    bestChildPositionScore = Math.Max(bestChildPositionScore, childPositionScore);
                 }
             
-                return bestPositionScore;
+                return bestChildPositionScore;
             }      
                `
             , Prism.languages[language])}
@@ -378,7 +377,7 @@ public static int NegaMax(Position position) {
             <div class = "code">
             {@html Prism.highlight(`
                 //returns a location on the board that will lead to the best position
-                public static int SearchForBestMove( Position position, int stopDepth) {
+                public static int SearchForBestMove( Position currPosition, int stopDepth) {
 
                 }
                 `, Prism.languages[language])}
@@ -390,22 +389,22 @@ public static int NegaMax(Position position) {
             <br>
             <div class = "code">
             {@html Prism.highlight(`//returns a location on the board that will lead to the best position
-                public static int SearchForBestMove( Position position ) {
+                public static int SearchForBestMove( Position currPosition ) {
 
-                    if (position.IsTerminal()) throw new CustomException("Can't search a terminal position");
+                    if (currPosition.IsTerminal()) throw new CustomException("Can't search a terminal position");
 
-                    int bestPositionScore = int.MinValue; 
+                    int bestChildPositionScore = int.MinValue; 
                     int bestMoveLocation = -1;
     
-                    foreach (int move in position.findAvailableMoves() ) { 
-                        Position resultantPosition = position.playMove( move ); //returns a new 'Position' object with the played move
-                        //note that the current turn in 'resultantPosition' is the opponent of the player in 'position'
+                    foreach (Position childPosition in currPosition.GetChildPositions() ) { 
+                        Position childPosition = currPosition.playMove( move ); //returns a new 'Position' object with the played move
+                        //note that the current turn in 'childPosition' is the opponent of the player in 'position'
     
-                        int positionScore = -NegaMax(resultantPosition, 1, stopDepth); 
+                        int childPositionScore = -NegaMax(childPosition, 1, stopDepth); 
     
-                        if (positionScore > bestPositionScore) {
+                        if (positionScore > bestChildPositionScore) {
                             bestMoveLocation = move;
-                            bestPositionScore = positionScore;
+                            bestChildPositionScore = childPositionScore;
                         }
                     }
     
@@ -443,9 +442,9 @@ public static int NegaMax(Position position) {
                         return n;
                     }
 
-                    private SearchForBestMove( Position position );
+                    private SearchForBestMove( Position currPosition );
 
-                    private NegaMax ( Position position, int depth);
+                    private NegaMax ( Position currPosition, int depth);
 
                 }
                 `, Prism.languages[language])}
@@ -463,7 +462,7 @@ public static int NegaMax(Position position) {
             <br>
             <br>
             Also note that we now have class variables that represent the best move to play, and the score of said move.
-            These variables replace <code>bestMoveLocation</code> and <code>bestPositionScore</code> in <code>SearchForBestMove</code>, respectively.
+            These variables replace <code>bestMoveLocation</code> and <code>bestChildPositionScore</code> in <code>SearchForBestMove</code>, respectively.
             <br>
             <br>
             There are also these variables:
@@ -485,38 +484,40 @@ public static int NegaMax(Position position) {
             Implementing these "tracking" vars in our <code>NegaMax</code> method looks like this:
             <br>
             <br>
+            <div class="code">
             {@html Prism.highlight(`
-            public static int NegaMax(Position position, int depth) {
+            public static int NegaMax(Position currPosition, int depth) {
                         
-                        if ( position.isTerminal() ) {
+                        if ( currPosition.isTerminal() ) {
                             this.encounteredTermPositions++;
-                            return position.getTerminalScore(); 
+                            return currPosition.getTerminalScore(); 
                         }
 
 
                         if ( depth == this.stopDepth ) { //note *this.stopDepth cuz its a class variable
                             this.scoredHeuristicPositions++;
-                            return position.getHeuristicScore();
+                            return currPosition.getHeuristicScore();
                         }
 
                         //were actually searching the position
                         this.searchedPositions++;
 
-                        int bestPositionScore = int.MinValue; 
+                        int bestChildPositionScore = int.MinValue; 
                     
-                        foreach (int move in position.findAvailableMoves() ) { //'move' just represents a location on the board
-                            Position resultantPosition = position.playMove( move ); //returns a new 'Position' object with the played move
-                            //note that the current turn in 'resultantPosition' is the opponent of the player in 'position'
+                        foreach (Position childPosition in currPosition.GetChildPositions() ) { //'move' just represents a location on the board
+                            Position childPosition = currPosition.playMove( move ); //returns a new 'Position' object with the played move
+                            //note that the current turn in 'childPosition' is the opponent of the player in 'position'
                     
-                            int positionScore = -NegaMax(resultantPosition, depth+1); //when we call NegaMax we increase the depth
+                            int childPositionScore = -NegaMax(childPosition, depth+1); //when we call NegaMax we increase the depth
                     
-                            bestPositionScore = Math.Max(bestPositionScore, positionScore);
+                            bestChildPositionScore = Math.Max(bestChildPositionScore, childPositionScore);
                         }
                     
-                        return bestPositionScore;
+                        return bestChildPositionScore;
                     }      
                     
                     `, Prism.languages[language])}
+            </div>
             Well, thats it! After a <strong>lot</strong> of learning we have finally completed the section regarding the NegaMax algorithm.
             <br>
             <br>
