@@ -21,7 +21,7 @@
     <Section sectionName= {"NegaMax"} blogPostNamesInSection = {["Understanding Moves","Terminal Positions","Zero Sum","Non Terminal Positions","Overview","Code","Search Trees","Code Optimized"]} on:linkClicked={handleLinkClicked} />
     <Section sectionName = {"NegaMax (Othello)"} blogPostNamesInSection = {[]} on:linkClicked={handleLinkClicked}/>
     <Section sectionName = {"Bitboards"} blogPostNamesInSection = {[]} on:linkClicked={handleLinkClicked}/>
-    <Section sectionName = {"Alpha Beta Pruning"} blogPostNamesInSection = {["Alpha and Beta"]} on:linkClicked={handleLinkClicked}/>
+    <Section sectionName = {"Alpha Beta Pruning"} blogPostNamesInSection = {["Alpha and Beta","Alpha and Beta", "Alpha Beta and Stopping","Extending Alpha Beta"]} on:linkClicked={handleLinkClicked}/>
     <!-- <ul>
         <li><a href="../index.html">Introduction</a></li>
         <li><a href="../Overview/overview.html">Overview</a></li>

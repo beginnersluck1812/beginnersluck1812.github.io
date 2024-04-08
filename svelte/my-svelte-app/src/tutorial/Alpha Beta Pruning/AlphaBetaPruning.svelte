@@ -70,9 +70,10 @@
         The current player <strong>should only continue searching</strong> one its child positions, if it knows that the <strong>position has the possibility of returning a score better than the current best score</strong>.
         <br>
         <br>
-        Or, the current player <strong>should stop searching</strong> one of its child positions, once it knows its <strong>going to return a worse score</strong>.
+        Or, the current player <strong>should stop searching (or prune)</strong> one of its child positions, once it knows its <strong>going to return a worse score</strong>.
         <br>
         <br>
+        So the "pruning" part of alpha-beta pruning feeds into the idea of search trees. Whenever a parent realizes that their child position is going to return a worse score, the parent should <strong>prune that branch</strong>.
         Now, in the next module were going to talk about how we can actually accomplish these goals listed above.
         <br>
         <br>
